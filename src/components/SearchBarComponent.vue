@@ -1,22 +1,26 @@
 <template>
   <div class="d-flex flex-no-wrap">
-      <input type="text" name="searchbar" id="searchbar" v-model="searchTest" placeholder="Search..">
-      <button class="btn btn-danger" @click="console" @keyup.enter="console">Search</button>
+      <input type="text" name="searchbar" id="searchbar" v-model="searchTest" placeholder="Search.." @keyup.enter="filterData">
+      <button class="btn btn-danger" @click="filterData">Search</button>
   </div>
 </template>
 
 <script>
+import { store } from '../data/store';
     export default {
         name: 'SearcBarComponent',
         data(){
             return{
                 searchTest: '',
+                store
             }
         },
         methods:{
-            console(){
-                console.log(this.searchTest);
+            filterData(){
+                store.query = this.searchTest;
                 this.searchTest = '';
+                console.log(store.query)
+                this.$emit('filterSearch', this.searchTest)
             }
         }
     }

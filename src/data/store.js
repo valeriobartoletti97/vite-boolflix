@@ -7,7 +7,7 @@ export const store = reactive ({
     },
     imagesUrl: 'https://image.tmdb.org/t/p/w342',
     api_key: "a69ff8b5c9d2f523287aaf0fc6162c8c",
-    query: "a",
+    query: '',
 
     movieList: [],
     seriesList: [],

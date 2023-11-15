@@ -1,4 +1,7 @@
 <template>
+    <div class="img-container">
+        <img :src="igm" :alt="title">
+    </div>
     <div>
         <div>
             {{ title }}
@@ -19,6 +22,7 @@
     export default {
         name: 'CardComponent',
         props:{
+            img:String,
             originalTitle:String,
             title:String,
             rating:Number,
