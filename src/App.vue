@@ -12,7 +12,7 @@ import MainComponent from './components/MainComponent.vue';
     name: 'App',
     components:{
     HeaderComponent,
-    MainComponent
+    MainComponent,
 },
     data(){
       return{

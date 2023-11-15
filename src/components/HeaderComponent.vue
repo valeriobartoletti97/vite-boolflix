@@ -2,28 +2,22 @@
   <header>
     <div class="d-flex justify-content-between flex-nowrap">
         <h1>Boolflix</h1>
-        <div class="d-flex flex-no-wrap">
-           <input type="text" name="searchbar" id="searchbar" v-model="searchTest" placeholder="Search..">
-           <button class="btn btn-danger" @click="console">Search</button>
-        </div>
+        <SearchBarComponent/>
     </div>
   </header>
 </template>
 
 <script>
+import SearchBarComponent from './SearchBarComponent.vue';
+
     export default {
         name: 'HeaderComponent',
         components:{
-            
-        },
+    SearchBarComponent
+},
         data(){
             return{
-               searchTest: '',
-            }
-        },
-        methods:{
-            console(){
-                console.log(this.searchTest)
+               
             }
         }
     }
@@ -42,10 +36,6 @@
         h1{
             color:red;
             margin:0;
-        }
-        input,button{
-            height: 70%;
-            margin: auto
         }
     }
 </style>
