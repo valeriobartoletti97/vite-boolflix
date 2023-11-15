@@ -33,10 +33,10 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
         store.movieList = response.data.results;
         console.log(store.movieList)
       });
-      const tvSeries = this.store.apiUrl + this.store.endPoint.series + '?api_key=' +this.store.api_key + '&query=' + this.store.query
+      const tvSeries = store.apiUrl + store.endPoint.series + '?api_key=' +store.api_key + '&query=' + store.query
       axios.get(tvSeries).then((response)=>{
-        this.store.seriesList = response.data.results;
-        console.log(this.store.movieList)
+        store.seriesList = response.data.results;
+        console.log(store.seriesList)
       });
       }
     },
