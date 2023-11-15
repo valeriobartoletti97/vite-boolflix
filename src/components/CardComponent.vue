@@ -6,7 +6,10 @@
         <h5 class="text-uppercase">{{title}}</h5>
         <div>{{originalTitle}}</div>
         <div>{{rating}}</div>
-        <div>{{language}}</div>  
+        <div>
+            <img class="flags" :src="`images/flags/${language}.svg`" :alt="language">
+            <div class="text-uppercase">{{ language }}</div>
+        </div>
     </div>
 </template>
 
@@ -30,5 +33,8 @@
         img{
             width:100%
         }
+     }
+     .flags{
+        width:20px
      }
 </style>
