@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="d-flex justify-content-between flex-nowrap">
-        <h1>Boolflix</h1>
+        <h1 class="text-uppercase">Boolflix</h1>
         <SearchBarComponent/>
     </div>
   </header>

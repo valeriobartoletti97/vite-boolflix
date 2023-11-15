@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-no-wrap">
       <input type="text" name="searchbar" id="searchbar" v-model="searchTest" placeholder="Search..">
-      <button class="btn btn-danger" @click="console">Search</button>
+      <button class="btn btn-danger" @click="console" @keyup.enter="console">Search</button>
   </div>
 </template>
 
@@ -15,7 +15,8 @@
         },
         methods:{
             console(){
-                console.log(this.searchTest)
+                console.log(this.searchTest);
+                this.searchTest = '';
             }
         }
     }
