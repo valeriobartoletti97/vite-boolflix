@@ -19,6 +19,7 @@
 
 <style lang="scss" scoped>
         h1{
+            font-size: 2.5em;
             color:red;
             margin:0;
         }

@@ -1,14 +1,22 @@
 <template>
-    <div class="img-card-container">
-        <img :src="img" :alt="title">
-    </div>
-    <div class="card-description py-4 text-center">
-        <h5 class="text-uppercase">{{title}}</h5>
-        <div>{{originalTitle}}</div>
-        <i v-for="n in 5" :key="n" class="fa-star" :class="(n <= getVote) ? 'fa-solid' : 'fa-regular'"></i>
-        <div>
-            <img class="flags" :src="getFlags" :alt="language">
-            <div class="text-uppercase">{{ language }}</div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="img-card-container">
+                    <img :src="img" :alt="title">
+                </div>
+            </div>
+            <div class="flip-card-back">
+                <div class="card-description py-4 text-center">
+                    <h5 class="text-uppercase">{{title}}</h5>
+                    <div>{{originalTitle}}</div>
+                    <i v-for="n in 5" :key="n" class="fa-star" :class="(n <= getVote) ? 'fa-solid' : 'fa-regular'"></i>
+                    <div>
+                        <img class="flags" :src="getFlags" :alt="language">
+                        <div class="text-uppercase">{{ language }}</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -307,8 +315,12 @@
     .img-card-container{
         width:100%;
         overflow:hidden;
+        object-fit: cover;
         img{
-            width:100%
+            width:100%;
+            height: 100%;
+            object-fit: cover;
+            display:block
         }
      }
      .flags{
@@ -317,4 +329,37 @@
      .fa-solid.fa-star{
         color:rgb(231, 231, 48)
      }
+     .flip-card {
+      background-color: transparent;
+      width: 342px;
+      height: 513px;
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    .flip-card-front {
+      background-color: blue;
+      color: black;
+    }
+    .flip-card-back {
+      background-color: black;
+      color: white;
+      transform: rotateY(180deg);
+    }
 </style>
