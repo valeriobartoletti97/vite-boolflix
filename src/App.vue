@@ -29,15 +29,25 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
     methods:{
       getMoviesAndSeries(){
         const movies = store.apiUrl + store.endPoint.movies + '?api_key=' +store.api_key + '&query=' + store.query
-      axios.get(movies, {params: store.params}).then((response)=>{
+        axios.get(movies, {params: store.params}).then((response)=>{
         store.movieList = response.data.results;
         console.log(store.movieList)
-      });
-      const tvSeries = store.apiUrl + store.endPoint.series + '?api_key=' +store.api_key + '&query=' + store.query
-      axios.get(tvSeries, {params: store.params}).then((response)=>{
+      }).catch((error)=>{
+          store.error = error.message
+          console.log(store.error)
+        }).finally(()=>{
+          store.loading = false
+        });
+        const tvSeries = store.apiUrl + store.endPoint.series + '?api_key=' +store.api_key + '&query=' + store.query
+        axios.get(tvSeries, {params: store.params}).then((response)=>{
         store.seriesList = response.data.results;
         console.log(store.seriesList)
-      });
+      }).catch((error)=>{
+          store.error = error.message
+          console.log(store.error)
+        }).finally(()=>{
+          store.loading = false
+        });
       }
     },
     created(){
@@ -47,13 +57,14 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
 </script>
 
 <style lang="scss" scoped>
+@use './assets/style/partials/variables.scss' as *;
     header{
         position: fixed;
         top:0;
         left:0;
         width: 100%;
         height: 120px;
-        background-color: black;
+        background-color: $eerie-black;
         z-index: 1000;
         padding: 40px;
     }

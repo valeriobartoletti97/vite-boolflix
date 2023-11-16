@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-no-wrap">
       <input type="text" name="searchbar" id="searchbar" v-model="searchTest" placeholder="Search.." @keyup.enter="filterData">
-      <button class="btn btn-danger" @click="filterData">Search</button>
+      <button class="btn" @click="filterData">Search</button>
   </div>
 </template>
 
@@ -17,10 +17,14 @@ import { store } from '../data/store';
         },
         methods:{
             filterData(){
-                store.query = this.searchTest;
-                this.searchTest = '';
-                console.log(store.query)
-                this.$emit('filterSearch', this.searchTest)
+                if(this.searchTest === ''){
+                    this.searchTest = '';
+                }else{
+                    store.query = this.searchTest;
+                    this.searchTest = '';
+                    console.log(store.query)
+                    this.$emit('filterSearch', this.searchTest)
+                }
             }
         }
     }
@@ -30,5 +34,8 @@ import { store } from '../data/store';
    input,button{
             height: 70%;
             margin: auto;
+        }
+        button{
+            color:white;
         }
 </style>

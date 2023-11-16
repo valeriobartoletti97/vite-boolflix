@@ -1,8 +1,17 @@
 <template>
   <main>
+    <div class="d-flex justify-content-center align-items-center" v-if="store.movieList == 0 && store.seriesList == 0">
+        <h3 class="mt-5">Search your favourite show</h3>
+    </div>
+    <div class="alert alert-danger text-uppercase text-center" v-if="store.error">
+        {{ store.error }}
+    </div>
     <div class="my-container">
         <section id="movies" v-if="store.movieList != 0">
-            <h2 class="text-uppercase text-center mb-2">Movies</h2>
+            <div class="d-flex justify-content-center align-items-center" v-if="store.loading">
+                <LoaderComponent/>
+            </div>
+            <h2 class="text-uppercase text-center mb-4">Movies</h2>
             <div class="d-flex align-items-start flex-wrap justify-content-center">
                 <div class="px-3 mb-5" v-for="(card,index) in store.movieList" :key="card.id">
                     <CardComponent :img="store.imagesUrl + card.poster_path" :title="card.title" :originalTitle="card.original_title" :rating="card.vote_average" :language="card.original_language" :overview="card.overview"/>
@@ -10,7 +19,10 @@
             </div>
         </section>
         <section id="series" v-if="store.seriesList != 0">
-            <h2 class="text-uppercase text-center mb-2"> Tv Series</h2>
+            <div class="d-flex justify-content-center align-items-center" v-if="store.loading">
+                <LoaderComponent/>
+            </div>
+            <h2 class="text-uppercase text-center mb-4"> Tv Series</h2>
             <div class="d-flex align-items-start flex-wrap justify-content-center">
                 <div class="px-3 mb-5" v-for="(card,index) in store.seriesList" :key="card.id">
                     <CardComponent :img="store.imagesUrl + card.poster_path" :title="card.name" :originalTitle="card.original_name" :rating="card.vote_average" :language="card.original_language" :overview="card.overview"/>
@@ -40,18 +52,33 @@ import { store } from '../data/store';
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/style/partials/variables.scss' as *;
     main{
-        background-color: gray;
+        background-color: $black-olive;
         margin-top: 120px;
         min-height: calc(100vh - 120px);
     }
     h2{
         font-size: 1.8em;
         margin:0;
+        font-weight: 800;
     }
     .my-container{
         max-width: 90%;
         margin:0 auto;
         padding: 20px 0;
     }
+    h3{
+        color: $floral-white;
+        font-weight: 700
+    }
+    #movies{
+        margin-bottom: 50px
+    }
+    div.alert-danger{
+        width:50%;
+        margin: 0 auto;
+        background-color: rgb(238, 53, 53);
+        font-weight: bolder
+     }
 </style>
