@@ -13,8 +13,8 @@
                     <i v-for="n in 5" :key="n" class="fa-star" :class="(n <= getVote) ? 'fa-solid' : 'fa-regular'"></i>
                     <div>
                         <img class="flags" :src="getFlags" :alt="language">
-                        <div class="text-uppercase">{{ language }}</div>
                     </div>
+                    <p class="plot">"{{ overview }}"</p>
                 </div>
             </div>
         </div>
@@ -30,6 +30,7 @@
             title:String,
             rating:Number,
             language:String,
+            overview:String
         },
         data(){
             return{
@@ -335,6 +336,9 @@
       height: 513px;
       perspective: 1000px;
     }
+    .flip-card:hover{
+        cursor:pointer;
+    }
     .flip-card-inner {
       position: relative;
       width: 100%;
@@ -354,12 +358,22 @@
       backface-visibility: hidden;
     }
     .flip-card-front {
-      background-color: blue;
+      background-color: rgb(187, 181, 181);
       color: black;
     }
     .flip-card-back {
       background-color: black;
       color: white;
       transform: rotateY(180deg);
+      overflow-y: auto;
+    }
+    .plot{
+        height: auto;
+        text-align: center;
+        margin:0;
+    }
+    .card-description{
+        padding: 0 20px;
+        overflow-y: auto;
     }
 </style>

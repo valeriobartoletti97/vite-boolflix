@@ -48,7 +48,7 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
 
 <style lang="scss" scoped>
     header{
-        position: absolute;
+        position: fixed;
         top:0;
         left:0;
         width: 100%;
