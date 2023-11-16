@@ -5,7 +5,7 @@
     <div class="card-description py-4 text-center">
         <h5 class="text-uppercase">{{title}}</h5>
         <div>{{originalTitle}}</div>
-        <div>{{rating}}</div>
+        <i v-for="n in 5" :key="n" class="fa-star" :class="(n <= getVote) ? 'fa-solid' : 'fa-regular'"></i>
         <div>
             <img class="flags" :src="getFlags" :alt="language">
             <div class="text-uppercase">{{ language }}</div>
@@ -285,7 +285,7 @@
                'ly',
                'lr',
                'ls',
-               ]
+               ],
             }
         },
         computed:{
@@ -297,7 +297,7 @@
                 return flag;
             },
             getVote(){
-                return Math.ceil (this.vote / 2);
+                return Math.ceil (this.rating / 2);
             },
         }
     }
@@ -313,5 +313,8 @@
      }
      .flags{
         width:20px
+     }
+     .fa-solid.fa-star{
+        color:rgb(231, 231, 48)
      }
 </style>
