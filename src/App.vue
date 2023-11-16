@@ -29,7 +29,7 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
     methods:{
       getMoviesAndSeries(){
         const movies = store.apiUrl + store.endPoint.movies + '?api_key=' +store.api_key + '&query=' + store.query
-      axios.get(movies).then((response)=>{
+      axios.get(movies, {params: store.params}).then((response)=>{
         store.movieList = response.data.results;
         console.log(store.movieList)
       });

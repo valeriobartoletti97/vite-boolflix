@@ -1,19 +1,23 @@
 <template>
   <main>
-     <div class="container">
-        <h2 class="text-uppercase">Movies</h2>
-        <div class="row align-items-center justify-content-center">
-            <div class="col-12 col-md-4 col-lg-3" v-for="(card,index) in store.movieList" :key="card.id">
-                <CardComponent :img="store.imagesUrl + card.poster_path" :title="card.title" :originalTitle="card.original_title" :rating="card.vote_average" :language="card.original_language"/>
+    <div class="container">
+        <section id="movies" v-if="store.movieList != 0">
+            <h2 class="text-uppercase">Movies</h2>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-md-4 col-lg-3" v-for="(card,index) in store.movieList" :key="card.id">
+                    <CardComponent :img="store.imagesUrl + card.poster_path" :title="card.title" :originalTitle="card.original_title" :rating="card.vote_average" :language="card.original_language"/>
+                </div>
             </div>
-        </div>
-        <h2 class="text-uppercase"> Tv Series</h2>
-        <div class="row align-items-center justify-content-center">
-            <div class="col-12 col-md-4 col-lg-3" v-for="(card,index) in store.seriesList" :key="card.id">
-                <CardComponent :img="store.imagesUrl + card.poster_path" :title="card.name" :originalTitle="card.original_name" :rating="card.vote_average" :language="card.original_language"/>
+        </section>
+        <section id="series">
+            <h2 class="text-uppercase"> Tv Series</h2>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 col-md-4 col-lg-3" v-for="(card,index) in store.seriesList" :key="card.id">
+                    <CardComponent :img="store.imagesUrl + card.poster_path" :title="card.name" :originalTitle="card.original_name" :rating="card.vote_average" :language="card.original_language"/>
+                </div>
             </div>
-        </div>
-     </div>
+        </section>
+    </div>
   </main>
 </template>
 
