@@ -1,4 +1,9 @@
 <template>
+<!--     <div class="movie-info d-flex justify-content-center align-items-center" v-if="store.movieInfo">
+        <h5>ciao</h5>
+        <i class="fa-solid fa-xmark position-absolute" @click="removeInfo"></i>
+        <div>{{originalTitle}}</div>
+    </div> -->
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -22,6 +27,7 @@
 </template>
 
 <script>
+import { store } from '../data/store';
     export default {
         name: 'CardComponent',
         props:{
@@ -295,7 +301,21 @@
                'lr',
                'ls',
                ],
+               store
             }
+        },
+        methods:{
+           /*  getInfo(card){
+                const info = card
+                store.movieInfo = !store.movieInfo;
+                console.log(card)
+                return info;
+            },
+            removeInfo(){
+                if(store.movieInfo === true){
+                    store.movieInfo = false
+                }  
+            } */
         },
         computed:{
             getFlags(){
@@ -381,4 +401,28 @@
         padding: 0 20px;
         overflow-y: auto;
     }
+    /* .movie-info{
+        z-index:10001;
+        max-width: 50%;
+        background-color:white;
+        height: calc(100vh - 100px);
+        margin: 50px auto;
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        border-radius: 10px
+     }
+     .fa-solid.fa-xmark{
+        padding:10px;
+        background-color:gray;
+        top:0;
+        right:0;
+        border-radius:50%;
+        font-size:2em;
+     }
+     .fa-solid.fa-xmark:hover{
+        cursor:pointer
+     } */
 </style>

@@ -15,4 +15,5 @@ export const store = reactive ({
     seriesList: [],
     error: "",
     loading: true,
+    movieInfo: false
 });

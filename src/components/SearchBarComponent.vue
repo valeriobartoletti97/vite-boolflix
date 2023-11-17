@@ -68,7 +68,7 @@ import { store } from '../data/store';
   border-radius: 50%;
   position: absolute;
   right: 0px;
-  color:#ffffff ;
+  color:$floral-white ;
   background-color:transparent;
   pointer-events: painted;  
 }
