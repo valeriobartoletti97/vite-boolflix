@@ -315,12 +315,12 @@
 <style lang="scss" scoped>
     .img-card-container{
         width:100%;
+        height:100%;
         overflow:hidden;
-        object-fit: cover;
         img{
             width:100%;
             height: 100%;
-            object-fit: cover;
+            
             display:block;
             line-height: 300px;
             overflow:hidden
@@ -355,7 +355,7 @@
     .flip-card-front, .flip-card-back {
       position: absolute;
       width: 100%;
-      height: 100%;
+      height:100%;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
     }
