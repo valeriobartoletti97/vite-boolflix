@@ -81,4 +81,7 @@ import { store } from '../data/store';
         background-color: rgb(238, 53, 53);
         font-weight: bolder
      }
+     .movie-wrapper{
+        overflow:hidden
+     }
 </style>

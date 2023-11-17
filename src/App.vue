@@ -50,9 +50,6 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
         });
       }
     },
-    created(){
-      
-    }
   }
 </script>
 

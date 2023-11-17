@@ -321,7 +321,9 @@
             width:100%;
             height: 100%;
             object-fit: cover;
-            display:block
+            display:block;
+            line-height: 300px;
+            overflow:hidden
         }
      }
      .flags{
@@ -333,7 +335,7 @@
      .flip-card {
       background-color: transparent;
       width: 342px;
-      height: 513px;
+      height: 500px;
       perspective: 1000px;
     }
     .flip-card:hover{
@@ -358,8 +360,11 @@
       backface-visibility: hidden;
     }
     .flip-card-front {
-      background-color: rgb(187, 181, 181);
-      color: black;
+      background-color: #252422ff;
+      color: white;
+      background-image: url('/images/unknown-movie.jpg');
+      background-position: center;
+      background-size: contain;
     }
     .flip-card-back {
       background-color: black;
