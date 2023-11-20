@@ -24,6 +24,7 @@
     position: fixed;
     top: 50vh;
     left: 50vw;
+    z-index: 10001
     }
 
     @keyframes rotation {

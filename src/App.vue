@@ -1,5 +1,6 @@
 <template>
 <!--   <div class="overlay"> -->
+    <IntroComponent @onEnd="intro = false" v-if="intro"/> 
     <header>
       <div class="d-flex justify-content-between flex-nowrap">
         <HeaderComponent />
@@ -15,6 +16,7 @@ import axios from 'axios';
 import {store} from './data/store';
 import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from './components/MainComponent.vue';
+import IntroComponent from './components/IntroComponent.vue';
 import SearchBarComponent from './components/SearchBarComponent.vue';
   export default {
     name: 'App',
@@ -22,10 +24,12 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
     HeaderComponent,
     MainComponent,
     SearchBarComponent,
+    IntroComponent,
 },
     data(){
       return{
-        store
+        store,
+        intro: true
       }
     },
     methods:{
@@ -51,8 +55,11 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
         }).finally(()=>{
           store.loading = false
         });
-      }
+      },
     },
+    mounted(){
+      this.intro = true
+    } 
   }
 </script>
 

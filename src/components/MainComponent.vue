@@ -22,8 +22,8 @@
                         <div class="offcanvas-wrapper">
                             <div>ciao</div>
                         </div>    
-                    </div>  -->
-                    <CardComponent  @click="getInfo(card)" :img="store.imagesUrl + card.poster_path" :title="card.title" :originalTitle="card.original_title" :rating="card.vote_average" :language="card.original_language" :overview="card.overview"/>
+                    </div> -->
+                    <CardComponent  @click="getInfo(card)" :img="card.poster_path" :title="card.title" :originalTitle="card.original_title" :rating="card.vote_average" :language="card.original_language" :overview="card.overview"/>
                 </div>
             </div>
         </section>

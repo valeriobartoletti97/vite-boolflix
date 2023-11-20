@@ -5,7 +5,6 @@ export const store = reactive ({
         movies:"movie",
         series: "tv"
     },
-    imagesUrl: 'https://image.tmdb.org/t/p/w342',
     api_key: "a69ff8b5c9d2f523287aaf0fc6162c8c",
     query: '',
     params:{
@@ -16,5 +15,5 @@ export const store = reactive ({
     error: "",
     loading: false,
     movieInfo: {},
-    imagesUrl500: 'https://image.tmdb.org/t/p/w500'
+    imagesUrl500: 'https://image.tmdb.org/t/p/w500',
 });

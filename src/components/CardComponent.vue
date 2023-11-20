@@ -3,7 +3,7 @@
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <div class="img-card-container">
-                    <img :src="img" :alt="title">
+                    <img :src="imagesUrl + img" :alt="title" v-if="img">
                 </div>
             </div>
             <div class="flip-card-back">
@@ -295,6 +295,7 @@
                'lr',
                'ls',
                ],
+               imagesUrl: 'https://image.tmdb.org/t/p/w342'
             }
         },
         computed:{
