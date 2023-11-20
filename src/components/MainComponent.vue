@@ -34,7 +34,7 @@
             <h2 class="text-uppercase text-center mb-4"> Tv Series</h2>
             <div class="d-flex align-items-start flex-wrap justify-content-center">
                 <div class="px-3 mb-5" v-for="(card,index) in store.seriesList" :key="card.id">
-                    <CardComponent :img="store.imagesUrl + card.poster_path" :title="card.name" :originalTitle="card.original_name" :rating="card.vote_average" :language="card.original_language" :overview="card.overview"/>
+                    <CardComponent :img="card.poster_path" :title="card.name" :originalTitle="card.original_name" :rating="card.vote_average" :language="card.original_language" :overview="card.overview"/>
                 </div>
             </div>
         </section>
