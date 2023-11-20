@@ -10,16 +10,20 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
     .loader {
     width: 48px;
     height: 48px;
-    border: 5px solid #FFF;
+    border: 5px solid white;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
+    margin-top: 120px;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
     }
 
     @keyframes rotation {

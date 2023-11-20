@@ -3,22 +3,26 @@
     <div class="d-flex justify-content-center align-items-center" v-if="store.movieList == 0 && store.seriesList == 0">
         <h3 class="mt-5">Search your favourite show</h3>
     </div>
+    <div class="d-flex justify-content-center align-items-center" v-if="store.loading">
+        <LoaderComponent/>
+    </div>
     <div class="alert alert-danger text-uppercase text-center" v-if="store.error">
         {{ store.error }}
     </div>
     <div class="my-container">
         <section id="movies" v-if="store.movieList != 0">
-            <div class="d-flex justify-content-center align-items-center" v-if="store.loading">
-                <LoaderComponent/>
-            </div>
             <h2 class="text-uppercase text-center mb-4">Movies</h2>
             <div class="d-flex align-items-start flex-wrap justify-content-center">
                 <div class="px-3 mb-5" v-for="(card,index) in store.movieList" :key="card.id">
-                    <div class="movie-info d-flex justify-content-center align-items-center" v-if="store.movieInfo">
-                      <h5>ciao</h5>
-                      <i class="fa-solid fa-xmark position-absolute" @click="removeInfo"></i>
-                      <div>{{card.title}}</div>
-                    </div> 
+                    <!-- offcanvas -->
+                    <!-- <div class="movie-info" v-if="store.movieInfo">
+                        <div class="canvas-img">
+                            <img :src="store.imagesUrl500 + store.movieInfo.backdrop_path" alt="">
+                        </div> 
+                        <div class="offcanvas-wrapper">
+                            <div>ciao</div>
+                        </div>    
+                    </div>  -->
                     <CardComponent  @click="getInfo(card)" :img="store.imagesUrl + card.poster_path" :title="card.title" :originalTitle="card.original_title" :rating="card.vote_average" :language="card.original_language" :overview="card.overview"/>
                 </div>
             </div>
@@ -55,12 +59,12 @@ import { store } from '../data/store';
         },
          methods:{
             getInfo(card){
-                store.movieInfo = !store.movieInfo;
-                console.log(card);
+                store.movieInfo = card;
+                console.log(store.movieInfo);
                 return card
             },
             removeInfo(){
-                if(store.movieInfo === true){
+                if(store.movieInfo !== false){
                     store.movieInfo = false
                 }  
             }
@@ -104,16 +108,17 @@ import { store } from '../data/store';
      }
      .movie-info{
         z-index:10001;
-        max-width: 50%;
-        background-color:white;
-        height: calc(100vh - 100px);
-        margin: 50px auto;
+        max-width: 33%;
+        background-color:$black-olive;
+        height: calc(100vh - 60px);
+        margin: 30px auto;
         position: absolute;
         top:0;
         bottom:0;
         left:0;
         right:0;
-        border-radius: 10px
+        border-radius: 10px;
+        border: 1px solid $eerie-black
      }
      .fa-solid.fa-xmark{
         padding:10px;
@@ -126,4 +131,18 @@ import { store } from '../data/store';
      .fa-solid.fa-xmark:hover{
         cursor:pointer
      } 
+     .offcanvas-wrapper{
+        padding:20px;
+     }
+     .canvas-img{
+            width: 100%;
+            height:300px;
+            overflow:hidden;
+            position:relative;
+            img{
+            width: 100%;
+            display:block; 
+            object-fit: cover
+        }
+       }
 </style>

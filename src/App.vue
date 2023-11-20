@@ -1,11 +1,13 @@
 <template>
-  <header>
-    <div class="d-flex justify-content-between flex-nowrap">
-      <HeaderComponent />
-      <SearchBarComponent @filterSearch="getMoviesAndSeries"/>
-    </div>
-  </header>
-  <MainComponent />
+<!--   <div class="overlay"> -->
+    <header>
+      <div class="d-flex justify-content-between flex-nowrap">
+        <HeaderComponent />
+        <SearchBarComponent @filterSearch="getMoviesAndSeries"/>
+      </div>
+    </header>
+    <MainComponent />
+<!--   </div> -->
 </template>
 
 <script>
@@ -28,6 +30,7 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
     },
     methods:{
       getMoviesAndSeries(){
+        store.loading=true
         const movies = store.apiUrl + store.endPoint.movies + '?api_key=' +store.api_key + '&query=' + store.query
         axios.get(movies, {params: store.params}).then((response)=>{
         store.movieList = response.data.results;
@@ -65,4 +68,14 @@ import SearchBarComponent from './components/SearchBarComponent.vue';
         z-index: 1000;
         padding: 40px;
     }
+/*     .overlay {
+      position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($color: #000000, $alpha: 0.9);
+    z-index: 1000000;
+    opacity: 1;
+} */
 </style>

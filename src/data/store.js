@@ -14,6 +14,7 @@ export const store = reactive ({
     movieList: [],
     seriesList: [],
     error: "",
-    loading: true,
-    movieInfo: false
+    loading: false,
+    movieInfo: {},
+    imagesUrl500: 'https://image.tmdb.org/t/p/w500'
 });
